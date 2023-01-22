@@ -106,6 +106,7 @@ function reducer(state, {type, payload }) {
         operation: null,
         currentOperand: evaluate(state),
       }
+    default : break
   }
 }
 
@@ -123,7 +124,8 @@ function evaluate({currentOperand, previousOperand, operation }) {
     case "/": computation = prev / current
       break  
     case "+": computation = prev + current
-      break  
+      break 
+    default : break   
     }
     return computation.toString()
 }
