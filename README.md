@@ -84,16 +84,16 @@ Tutorial
 Prerequisites
 Node and npm are installed. Here are the versions I'll be using while making this tutorial:
 
-$ node --version
+### $ node --version
 v16.13.2
 
-$ npm --version
+### $ npm --version
 8.1.2
 Installing npm adds two commands to the system—npm and npx—both of which I'll be using while making this tutorial.
 
 Git is installed. Here's the version I'll be using while making this tutorial:
 
-$ git --version
+### $ git --version
 git version 2.29.1.windows.1
 A GitHub account. :octocat:
 
@@ -130,10 +130,10 @@ Create a React app named my-app:
 
 In case you want to use a different name from my-app (e.g. web-ui), you can accomplish that by replacing all occurrences of my-app in this tutorial, with that other name (i.e. my-app --> web-ui).
 
-$ npx create-react-app my-app
+### $ npx create-react-app my-app
 That command will create a React app written in JavaScript. To create one written in TypeScript, you can issue this command instead:
 
-$ npx create-react-app my-app --template typescript
+### $ npx create-react-app my-app --template typescript
 That command will create a new folder named my-app, which will contain the source code of a React app.
 
 In addition to containing the source code of the React app, that folder is also a Git repository. That characteristic of the folder will come into play in Step 6.
@@ -145,19 +145,19 @@ Since I have not set that variable in my Git installation, the branch in my repo
 
 Enter the newly-created folder:
 
-$ cd my-app
+### $ cd my-app
 At this point, there is a React app on your computer and you are in the folder that contains its source code. All of the remaining commands shown in this tutorial can be run from that folder.
 
 3. Install the gh-pages npm package
 Install the gh-pages npm package and designate it as a development dependency:
 
-$ npm install gh-pages --save-dev
+### $ npm install gh-pages --save-dev
 At this point, the gh-pages npm package is installed on your computer and the React app's dependence upon it is documented in the React app's package.json file.
 
 4. Add a homepage property to the package.json file
 Open the package.json file in a text editor.
 
-$ vi package.json
+### $ vi package.json
 In this tutorial, the text editor I'll be using is vi. You can use any text editor you want; for example, Visual Studio Code.
 
 Add a homepage property in this format*: https://{username}.github.io/{repo-name}
@@ -174,7 +174,7 @@ At this point, the React app's package.json file includes a property named homep
 5. Add deployment scripts to the package.json file
 Open the package.json file in a text editor (if it isn't already open in one).
 
-$ vi package.json
+### $ vi package.json
 Add a predeploy property and a deploy property to the scripts object:
 
 "scripts": {
@@ -194,7 +194,7 @@ To customize that command for your situation, replace {username} with your GitHu
 
 In my case, I'll run:
 
-$ git remote add origin https://github.com/gitname/react-gh-pages.git
+### $ git remote add origin https://github.com/gitname/react-gh-pages.git
 That command tells Git where I want it to push things whenever I—or the gh-pages npm package acting on my behalf—issue the $ git push command from within this local Git repository.
 
 At this point, the local repository has a "remote" whose URL points to the GitHub repository you created in Step 1.
@@ -202,14 +202,14 @@ At this point, the local repository has a "remote" whose URL points to the GitHu
 7. Push the React app to the GitHub repository
 Push the React app to the GitHub repository
 
-$ npm run deploy
+### $ npm run deploy
 That will cause the predeploy and deploy scripts defined in package.json to run.
 
 Under the hood, the predeploy script will build a distributable version of the React app and store it in a folder named build. Then, the deploy script will push the contents of that folder to a new commit on the gh-pages branch of the GitHub repository, creating that branch if it doesn't already exist.
 
 By default, the new commit on the gh-pages branch will have a commit message of "Updates". You can specify a custom commit message via the -m option, like this:
 
-$ npm run deploy -- -m "Deploy React app to GitHub Pages"
+### $ npm run deploy -- -m "Deploy React app to GitHub Pages"
 At this point, the GitHub repository contains a branch named gh-pages, which contains the files that make up the distributable version of the React app. However, we haven't configured GitHub Pages to serve those files yet.
 
 8. Configure GitHub Pages
@@ -234,7 +234,7 @@ In this step, I'll show you how you can store the source code of the React app o
 
 Commit the changes you made while you were following this tutorial, to the master branch of the local Git repository; then, push that branch up to the master branch of the GitHub repository.
 
-$ git add .
-$ git commit -m "Configure React app for deployment to GitHub Pages"
-$ git push origin master
+### $ git add .
+### $ git commit -m "Configure React app for deployment to GitHub Pages"
+### $ git push origin master
 I recommend exploring the GitHub repository at this point. It will have two branches: master and gh-pages. The master branch will contain the React app's source code, while the gh-pages branch will contain the distributable version of the React app.
